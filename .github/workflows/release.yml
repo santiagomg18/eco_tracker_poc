@@ -1,4 +1,6 @@
 name: Publicacion Automatica
+permissions:
+  contents: write
 
 on:
   push:
@@ -27,9 +29,9 @@ jobs:
 
       - name: Crear Release y Subir Archivos
         uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            build/app/outputs/flutter-apk/app-release.apk
-            build/windows/runner/Release/*.exe
+       with:
+  files: |
+    build/app/outputs/flutter-apk/app-release.apk
+    build/windows/x64/runner/Release/*.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
